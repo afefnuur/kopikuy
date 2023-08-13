@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keranjang Belanja</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap-icons.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet" />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap-icons.css" />
+    <style>
+      .card {
+        border: none;
+      }
+      .card-header {
+        padding: 0.5rem 1rem;
+        margin-bottom: 0;
+        background-color: rgba(0, 0, 0, 0.03);
+        border-bottom: none;
+      }
+      .btn-light:focus {
+        color: #212529;
+        background-color: #e2e6ea;
+        border-color: #dae0e5;
+        box-shadow: 0 0 0 0.2rem rgba(216, 217, 219, 0.5);
+      }
+      .form-control {
+        height: 50px;
+        border: 2px solid #eee;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .form-control:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #039be5;
+        outline: 0;
+        box-shadow: none;
+      }
+      .bg-nav {
+        background-color: #73483f;
+      }
+      .bg-cok {
+        background-color: #f4ede5;
+      }
+      div.nomorakun {
+        /* color mengatur warna tulisan */
+        text-align: left;
+        margin-top: 4px;
+        margin-left: 50px;
+        margin-bottom: 21px;
+      }
+      .oder {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body class="bg-cok">
+    <!--  -->
+    <nav class="navbar navbar-dark bg-nav navbar-expand-lg bisadicopy">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo/logo_kuy.png" height="40" alt="image" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav11"
+          aria-controls="navbarNav11"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav11">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html#best-seller">Best Seller</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#our-team">Our Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#review">Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact-us">Contact US</a>
+            </li>
+          </ul>
+          <a href="produk.html" class="btn btn-outline-light position-relative">
+            Shop
+          </a>
+
+          <a
+            class="btn btn-outline-light ms-md-3"
+            href="https://wa.me/6281277778888?text=Halo saya mau beli kopi">
+            <i class="bi bi-whatsapp"></i> Chat
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="keranjang">
+      <div class="container my-4">
+        <h1 class="text-center mb-3">Keranjang Belanja</h1>
+        <!-- tampilan -->
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <ul class="list-group mb-1" id="ul_list_produk"></ul>
+          </div>
+        </div>
+        <!-- orderan -->
+        <div class="row justify-content-center">
+          <div id="keteranganharga" class="">
+            <div class="container d-flex justify-content-center mt-5 mb-5">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <h4>Metode Pembayaran</h4>
+                  <div class="card">
+                    <div
+                      class="d-flex align-items-center justify-content-between mx-5 my-3">
+                      <span class="oder">Id Order:</span>
+                      <span class="oder">518d-abjk-fd79-67bj-fyvjh6</span>
+                    </div>
+                    <div class="nomorakun">
+                      <h4>Nomor Akun</h4>
+                      <h7>085337844267</h7>
+                    </div>
+                    <h6 class="mx-3">Bagaimana Cara Membayar?</h6>
+                    <div class="accordion" id="accordionExample">
+                      <div class="card">
+                        <!-- Dana -->
+                        <div class="card-header p-0" id="headingTwo">
+                          <h2 class="mb-0">
+                            <button
+                              class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
+                              type="button"
+                              data-toggle="collapse"
+                              data-target="#collapseTwo"
+                              aria-expanded="false"
+                              aria-controls="collapseTwo">
+                              <div
+                                class="d-flex align-items-center justify-content-between">
+                                <span>Dana</span>
+                                <img
+                                  src="data:image/png;base64,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"
+                                  width="30" />
+                              </div>
+                            </button>
+                          </h2>
+                        </div>
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          aria-labelledby="headingTwo"
+                          data-parent="#accordionExample">
+                          <div class="card-body">
+                            <ol class="list-group list-group-numbered">
+                              <li class="list-group-item">
+                                Buka aplikasi DANA
+                              </li>
+                              <li class="list-group-item">Tap 'Kirim'</li>
+                              <li class="list-group-item">
+                                Tap 'Kirim ke Teman'
+                              </li>
+                              <li class="list-group-item">
+                                Masukkan nomor tujuan (085337844267)
+                              </li>
+                              <li class="list-group-item">
+                                Masukkan nominal yang akan dikirimkan (pastikan
+                                sama dengan orderan)
+                              </li>
+                              <li class="list-group-item">
+                                Pilih metode pembayaran menggunakan saldo DANA
+                              </li>
+                              <li class="list-group-item">
+                                Pastikan nomor dan jumlah transfer sudah sesuai
+                              </li>
+                              <li class="list-group-item">Tap 'Bayar'</li>
+                              <li class="list-group-item">Masukkan PIN DANA</li>
+                              <li class="list-group-item">
+                                Transakti berhasil
+                              </li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- gopay -->
+                      <div class="card-header p-0" id="gopay">
+                        <h2 class="mb-0">
+                          <button
+                            class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#collapsegopay"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            <div
+                              class="d-flex align-items-center justify-content-between">
+                              <span>Gopay</span>
+                              <img
+                                src="data:image/png;base64,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"
+                                width="30" />
+                            </div>
+                          </button>
+                        </h2>
+                      </div>
+                      <div
+                        id="collapsegopay"
+                        class="collapse"
+                        aria-labelledby="gopay"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                          <ol class="list-group list-group-numbered">
+                            <li class="list-group-item">Buka aplikasi Gojek</li>
+                            <li class="list-group-item">
+                              Pada halaman utama, klik menu "Bayar"
+                            </li>
+                            <li class="list-group-item">
+                              Masukkan nomor tujuan (085337844267)
+                            </li>
+                            <li class="list-group-item">
+                              Isi nominal saldo (pastikan sama dengan orderan).
+                            </li>
+                            <li class="list-group-item">Klik "Konfirmasi".</li>
+                            <li class="list-group-item">
+                              Pilih jenis pembayaran melalui ikon yang tersedia.
+                              Anda juga dapat menambahkan catatan bila
+                              diinginkan.
+                            </li>
+                            <li class="list-group-item">
+                              Pilih mode "Teman" jika ingin transaksi dapat
+                              dilihat oleh teman GoPay Anda dan teman GoPay
+                              penerima.
+                            </li>
+                            <li class="list-group-item">
+                              Klik "Konfirmasi & Bayar".
+                            </li>
+                            <li class="list-group-item">Masukkan PIN GoPay.</li>
+                            <li class="list-group-item">
+                              Tunggu sampai muncul notifikasi bahwa transfer
+                              saldo telah berhasil.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                      <!-- ovo -->
+                      <div class="card-header p-0" id="ovo">
+                        <h2 class="mb-0">
+                          <button
+                            class="btn btn-light btn-block text-left collapsed p-3 rounded-0 border-bottom-custom"
+                            type="button"
+                            data-toggle="collapse"
+                            data-target="#collapseovo"
+                            aria-expanded="false"
+                            aria-controls="collapseTwo">
+                            <div
+                              class="d-flex align-items-center justify-content-between">
+                              <span>OVO</span>
+                              <img
+                                src="data:image/jpeg;base64,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"
+                                width="30" />
+                            </div>
+                          </button>
+                        </h2>
+                      </div>
+                      <div
+                        id="collapseovo"
+                        class="collapse"
+                        aria-labelledby="ovo"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                          <ol class="list-group list-group-numbered">
+                            <li class="list-group-item">Buka aplikasi OVO.</li>
+                            <li class="list-group-item">
+                              Masukkan security code.
+                            </li>
+                            <li class="list-group-item">
+                              Pilih menu 'Transfer', kemudian pilih 'Ke sesama
+                              OVO'.
+                            </li>
+                            <li class="list-group-item">
+                              Masukkan nomor 085337844267.
+                            </li>
+                            <li class="list-group-item">
+                              Masukkan nominal saldo (pastikan sama dengan
+                              orderan).
+                            </li>
+                            <li class="list-group-item">Klik 'Lanjutkan'.</li>
+                            <li class="list-group-item">
+                              Di layar akan terlihat detail transaksi, periksa
+                              detail tersebut mulai dari nomor tujuan dan jumlah
+                              yang akan ditransfer.
+                            </li>
+                            <li class="list-group-item">
+                              Setelah itu, klik 'Transfer'.
+                            </li>
+                            <li class="list-group-item">
+                              Tunggu hingga proses transfer berhasil dilakukan.
+                            </li>
+                            <li class="list-group-item">
+                              Transfer dari OVO ke OVO telah selesai dilakukan.
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <h4>Ringkasan Order</h4>
+                  <div class="card">
+                  
+
+                    <hr class="mt-0 line" />
+                    <!-- bas -->
+                    <div class="p-3">
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>SubTotal</span>
+                        <span id="subtotal_html">-$2.00</span>
+                      </div>
+                    </div>
+                    <hr class="mt-0 line" />
+                    <div class="p-3">
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>PPN (10%)</span>
+                        <span id="ppn_html">-$2.00</span>
+                      </div>
+                    </div>
+
+                    <hr class="mt-0 line" />
+
+                    <div class="p-3">
+                      <div class="d-flex justify-content-between mb-2">
+                        <span>Total</span>
+                        <span id="total_html">-$2.00</span>
+                      </div>
+                    </div>
+
+                    <div class="p-3">
+                      <a
+                        target="_blank"
+                        class="btn btn-danger col-12"
+                        href="https://wa.me/6285337844267?text=halo Kopi Kuy saya ingin verifikasi pembayaran" >
+                        Kirim Bukti Pembayaran
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      var tmp_list_belanja = [];
+      var hargatotal = 0;
+
+      // Gambar Atas
+      function updateListCart() {
+        var list_belanja = localStorage.getItem("list_belanja");
+        if (list_belanja != null) {
+          var list_belanja_object = JSON.parse(
+            localStorage.getItem("list_belanja")
+          );
+          list_belanja_object.forEach((item) => {
+            hargatotal += item.hargaint;
+
+            var idx = tmp_list_belanja.findIndex((itemTMP) => {
+              if (itemTMP.nama === item.nama) {
+                return true;
+              }
+              return false;
+            });
+
+            if (idx !== -1) {
+              tmp_list_belanja[idx].qty = tmp_list_belanja[idx].qty + 1;
+            } else {
+              tmp_list_belanja.push(item);
+            }
+          });
+          updateTampilan();
+        }
+      }
+
+      updateListCart();
+
+      function updateTampilan() {
+        if (tmp_list_belanja.length < 1) {
+          ul_list_produk.innerHTML = `<li class="list-group-item d-flex justify-content-center align-items-center"><h3>Keranjang Anda Kosong</h3></li>`;
+          keteranganharga.classList.add("d-none");
+        } else {
+          keteranganharga.classList.remove("d-none");
+          var template_list = ``;
+          tmp_list_belanja.forEach((item, index) => {
+            template_list += `<li class="list-group-item d-flex justify-content-between align-items-center">
+                            <img src="${item.foto}" height="40" width="40">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold">${item.nama}</div>
+                                <span class="harga">${item.harga}</span> x
+                                <span class="jumlah">${item.qty}</span>
+                            </div>
+                            <div class="fw-bold mx-3">${titikPemisahRupiah(
+                              item.hargaint * item.qty
+                            )}</div>
+                            <button onclick="hapusProduk(${index})" class="btn btn-danger btn-sm">Hapus</span>
+                        </li>`;
+          });
+          ul_list_produk.innerHTML = template_list;
+          subtotal_html.innerHTML = titikPemisahRupiah(hargatotal);
+          ppn_html.innerHTML = titikPemisahRupiah((hargatotal * 10) / 100);
+          total_html.innerHTML = titikPemisahRupiah(
+            hargatotal + (hargatotal * 10) / 100
+          );
+        }
+      }
+
+      /* Fungsi Untuk memberi titik ribuan pada rupiah untuk memudahkan pembacaan harga */
+      function titikPemisahRupiah(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      /* Fungsi untuk menghapus quantity dan produk pada cart */
+
+      function hapusProduk(index) {
+        hargatotal = hargatotal - tmp_list_belanja[index].hargaint;
+
+        var list_belanja = localStorage.getItem("list_belanja");
+        var list_belanja_object = JSON.parse(
+          localStorage.getItem("list_belanja")
+        );
+        var nama_produk = tmp_list_belanja[index].nama;
+
+        var idx = list_belanja_object.findIndex((itemTMP) => {
+          if (itemTMP.nama === nama_produk) {
+            return true;
+          }
+          return false;
+        });
+
+        if (idx !== -1) {
+          list_belanja_object.splice(idx, 1);
+          localStorage.setItem(
+            "list_belanja",
+            JSON.stringify(list_belanja_object)
+          );
+        }
+        if (tmp_list_belanja[index].qty > 1) {
+          tmp_list_belanja[index].qty = tmp_list_belanja[index].qty - 1;
+        } else {
+          tmp_list_belanja.splice(index, 1);
+        }
+        updateTampilan();
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="text/javascript">
+      var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener("click", function (e) {
+        e.preventDefault();
+      });
+    </script>
+  </body>
+</html>

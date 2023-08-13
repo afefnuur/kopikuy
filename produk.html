@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon" />
+    <title>Produk</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap-icons.css" />
+    <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      /* tulis kode CSS internal di bawah sini */
+      body {
+        background-image: url(images/background/bgkopi.png);
+      }
+      section {
+        min-height: 90vh;
+      }
+      .bg-nav {
+        background-color: #884a39;
+      }
+      .nav-link {
+        color: white;
+      }
+      .card img {
+        display: block;
+        object-fit: cover;
+        background-size: cover;
+        height: 300px;
+      }
+      .coklat{
+        border-color: #884a39 !important;
+        color: white;
+        background-color: #884a39;
+      }
+      #produk_not_found {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            height: 330px;
+            border: 1px solid #d1d1d1;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 30px;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+      .btn-sc{
+        
+        bottom: 50px;
+        right: 25px;
+      }
+
+      /* Batas Akhir penulisan kode CSS internal */
+    </style>
+  </head>
+
+  <body id="top">
+    <!-- Tulis Kode Bootstrap Di Bawah Sini -->
+
+    <nav class="navbar navbar-dark bg-nav navbar-expand-lg bisadicopy">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="images/logo/logo_kuy.png" height="40" alt="image" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav11" aria-controls="navbarNav11" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav11">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html#best-seller">Best Seller</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#our-team">Our Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#review">Review</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact-us">Contact Us</a>
+            </li>
+          </ul>
+          <a href="cart.html" class="btn btn-outline-light position-relative">
+            <i class="bi bi-cart4"></i>
+            <span
+              id="cart_icon"
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              0
+            </span>
+          </a>
+          <a class="btn btn-outline-light ms-md-3" href="https://wa.me/6281290465033">Chat <i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </nav>
+
+    <section class="riki-block produk text-center my-5 py-5 "data-aos="zoom-out-down" data-aos-duration="1500">
+      <div class="container bg-white p-4 shadow-lg">
+        <h1>Pilih Produk Anda</h1>
+        <p class="fs-4">Kualitas biji kopi terbaik, fresh diambil langsung dari petani</p>
+        <hr class="border coklat border-3 opacity-75" />
+
+        <!-- Ini Untuk Select -->
+        <div class="row justify-content-center">
+          <div class="row gap-2 gap-md-0">
+            <div class="col-md-4">
+                <div class="input-group input-group-lg h-100">
+                    <button aria-readonly="true" disabled class="btn btn-success" type="button"
+                        id="btn-cari-produk">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <input id="cari-produk" type="search" class="form-control bg" placeholder="Cari Produk ..."
+                        aria-label="Cari produk search">
+                </div>
+            </div>
+            
+  
+          <div class="col-md-4">
+            <div class="form-floating">
+              <select class="form-select" id="select_kopi">
+                <option selected value="semua"> Semua</option>
+                <option value="arabica">Arabica</option>
+                <option value="robusta">Robusta</option>
+                <option value="dinein">Dinein</option>
+                <option value="other">Other</option>
+              </select>
+              <label for="select_kopi">Pilih Jenis Kopi</label>
+            </div>
+              </div>
+          <div class="col-md-4">
+            <div class="form-floating">
+              <select class="form-select" id="filter_harga">
+                <option selected disabled>Silahkan Pilih Harga</option>
+                <option value="paling_mahal">Paling Mahal</option>
+                <option value="paling_murah">Paling Murah</option>
+              </select>
+              <label for="filter_harga">Urut Harga</label>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div id="produk_not_found" class="mt-4">
+          <h6 class="fs-5 mt-3">Produk tidak ditemukan</h6>
+          <p class="fs-6">Produk yang anda cari tidak ditemukan, silahkan cari produk lainnya</p>
+      </div>
+      
+        <div id="baris_produk" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 text-center mt-5">
+          
+          <!-- <div class="col mb-4">
+            <div class="card">
+              <img src="images/produk/product_capuchino.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Cappuccino</h5>
+                <div class="row hargasize my-4">
+                  <div class="col">120 Gram</div>
+                  <div class="col fw-bold text-primary">38.000</div>
+                </div>
+                <a href="#" class="btn coklat w-100"><i class="bi bi-cart4"></i> Beli</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="images/produk/product_espresso.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Espresso</h5>
+                <div class="row hargasize my-4">
+                  <div class="col">120 Gram</div>
+                  <div class="col fw-bold text-primary">28.000</div>
+                </div>
+                <a href="#" class="btn coklat w-100"><i class="bi bi-cart4"></i> Beli</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="images/produk/product_kopi_susu.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Kopi Susu</h5>
+                <div class="row hargasize my-4">
+                  <div class="col">120 Gram</div>
+                  <div class="col fw-bold text-primary">38.000</div>
+                </div>
+                <a href="#" class="btn coklat w-100"><i class="bi bi-cart4"></i> Beli</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <img src="images/produk/product_latte.jpg" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Latte</h5>
+                <div class="row hargasize my-4">
+                  <div class="col">120 Gram</div>
+                  <div class="col fw-bold text-primary">32.000</div>
+                </div>
+                <a href="#" class="btn coklat w-100"><i class="bi bi-cart4"></i> Beli</a>
+              </div>
+            </div> -->
+            
+          </div>
+    </section>
+
+    <footer class="riki-block footer-small py-4 coklat ">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-12 col-md-8">
+                  <ul class="nav justify-content-center justify-content-md-start">
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html#best-seller">Best Seller</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html#our-team">Our Team</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html#review">Review</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="index.html#contact-us">Contact Us</a>
+                      </li>
+                  </ul>
+              </div>
+
+              <div class="col-12 col-md-4 mt-4 mt-md-0 text-center text-md-right">
+                  &copy; 2023 Kopi Kuy &amp; Tim . All Rights Reserved
+              </div>
+          </div>
+      </div>
+        
+  </footer>
+
+  <a href="#top" id="btnScroll" class="btn coklat btn-sc position-fixed d-none">
+    <i class="bi bi-arrow-bar-up"></i>
+  </a>
+
+
+  <script>
+    window.onscroll = function () {
+  scrollFunction();
+};
+    var btnScroll= document.getElementById("btnScroll");
+   
+function scrollFunction() {
+  if (document.documentElement.scrollTop > 100) {
+    
+    btnScroll.classList.remove("d-none");
+  } else {
+    
+      btnScroll.classList.add("d-none");
+    
+  }
+}
+
+  </script>
+
+    <!-- Batas Akhir penulisan kode Bootstrap -->
+    <script>
+      /* Tulis Javascript Di bawah Sini */
+      var sumber = "https://rikikurnia.com/prakerja/api/kopi"
+        var sumber2 = "data.json"
+        var selectedData = []
+
+        var $produkNotFound = $("#produk_not_found");
+
+        $produkNotFound.hide();
+        
+        function showLoadingFetchData() {
+            [1, 2, 3, 4].forEach(item => {
+                baris_produk.innerHTML += `
+                        <div class="col mb-4" >
+                            <div class="card p-0" aria-hidden="true" >
+                                <span class="placeholder" style="height: 259px;"></span>
+                                <div class="card-body">
+                                    <h5 class="card-title placeholder-glow">
+                                        <span class="placeholder col-9 rounded"></span>
+                                        <span class="placeholder col-6 rounded"></span>
+                                    </h5>
+                                    <p class="card-text placeholder-glow d-flex gap-2 justify-content-between my-4 mx-4">
+                                        <span class="placeholder col-4 rounded"></span>
+                                        <span class="placeholder col-4 rounded"></span>
+                                    </p>
+                                    <a class="btn btn-success disabled placeholder w-100"></a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+            });
+        }
+
+        function fetchData(dipilih) {
+            showLoadingFetchData();
+            if (dipilih === "semua") {
+                $.when(
+                    $.getJSON(sumber),
+                    $.getJSON(sumber2)
+                ).then(function (dataSumber, dataSumber2) {
+                    selectedData = [
+                    ,...dataSumber[0].arabica
+                    ,...dataSumber2[0].other
+                    ,...dataSumber[0].nonkopi
+                    ,...dataSumber[0].robusta
+                    ,...dataSumber2[0].dinein];
+                    displayData(selectedData);
+                });
+              } else if (dipilih === "other") {
+          $.getJSON(sumber2).then(function (data) {
+            selectedData = data.other;
+            displayData(selectedData);
+          });
+              } else if (dipilih === "dinein") {
+          $.getJSON(sumber2).then(function (data) {
+            selectedData = data.dinein;
+            displayData(selectedData);
+          });
+              } else {
+          $.getJSON(sumber).then(function (data) {
+            selectedData = data[dipilih];
+            displayData(selectedData);
+          });
+          }
+       console.log(selectedData);     
+      }
+        function displayData(data_kopi) {
+            baris_produk.innerHTML = "";
+
+            if (data_kopi.length === 0) {
+                $produkNotFound.show();
+            } else {
+                $produkNotFound.hide();
+                data_kopi.forEach(item => {
+                    baris_produk.innerHTML += `<div class="col mb-4" data-aos="zoom-in" data-aos-duration="1500">
+                            <div class="card">
+                                <img src="${item.foto}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.nama}</h5>
+                                    <div class="row hargasize my-4">
+                                        <div class="col">
+                                            ${item.size}
+                                        </div>
+                                        <div class="col fw-bold text-primary">
+                                            Rp. ${item.harga}
+                                        </div>
+                                    </div>
+                                    <button onclick='addToCart(${JSON.stringify(
+                        {
+                            nama: item.nama,
+                            harga: item.harga,
+                            foto: item.foto,
+                            hargaint:
+                                item.harga.split(".").join("") * 1,
+                            qty: 1,
+                        }
+                    )})' href="${item.link
+                        }" class="addToCart btn coklat w-100">
+                                <i class="bi bi-cart4"></i> Add To Cart
+                            </button>
+                                </div>
+                            </div>
+                        </div>`;
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            fetchData("semua");
+
+            $("#select_kopi").change(function () {
+                var dipilih = $(this).val();
+                fetchData(dipilih);
+            });
+
+            $("#filter_harga").change(function () {
+                var dipilih = $(this).val();
+                var keyword = $("#cari-produk").val().toLowerCase();
+
+                if (dipilih === "paling_mahal") {
+                    selectedData.sort((a, b) => b.harga - a.harga);
+                } else if (dipilih === "paling_murah") {
+                    selectedData.sort((a, b) => a.harga - b.harga);
+                }
+
+                if (keyword !== "") {
+                    var filteredData = selectedData.filter(item => item.nama.toLowerCase().includes(keyword));
+                    displayData(filteredData);
+                } else {
+                    // If no search keyword, display the sorted selectedData
+                    displayData(selectedData);
+                }
+            });
+
+            $("#cari-produk").on("input", function () {
+                var keyword = $(this).val().toLowerCase();
+                var filteredData = selectedData.filter(item => item.nama.toLowerCase().includes(keyword));
+                displayData(filteredData);
+            });
+        });
+        var list_belanja = [];
+      function addToCart(item) {
+        //itemObj = JSON.parse(item)
+        list_belanja.push(item);
+        localStorage.setItem("list_belanja", JSON.stringify(list_belanja));
+        alert("Berhasil Menambah Produk");
+        updateCartIcon();
+      }
+      function updateCartIcon() {
+        cart_icon.classList.add("d-none");
+        let list_belanja = localStorage.getItem("list_belanja");
+        if (list_belanja != null) {
+          list_belanja = JSON.parse(list_belanja);
+          cart_icon.textContent = list_belanja.length;
+          if (list_belanja.length > 0) cart_icon.classList.remove("d-none");
+        }
+      }
+      updateCartIcon();
+      
+      /* Batas Akhir penulisan kode Javascript */
+        </script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+          AOS.init();
+        </script>
+  </body>
+</html>
